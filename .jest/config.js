@@ -8,7 +8,7 @@ module.exports = {
   collectCoverageFrom: ["**/*.{ts,tsx}"],
   coverageDirectory: ".jest/coverage",
   globals: {
-    "split-tests": { junit: "./.jest/junit.xml" },
+    "split-tests": { junit: "./.jest/test-results.xml" },
   },
   moduleDirectories: [
     "node_modules",
