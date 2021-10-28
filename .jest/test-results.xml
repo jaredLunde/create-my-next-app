@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="1" failures="0" errors="0" time="0.982">
-  <testsuite name="`undefined` — _components/index.test.ts_" errors="0" failures="0" skipped="0" timestamp="2021-10-27T03:52:59" time="0.56" tests="1">
-    <testcase classname=" should work" name=" should work" time="0.003" file="components/index.test.ts">
+<testsuites name="jest tests" tests="5" failures="0" errors="0" time="3.219">
+  <testsuite name="`&lt;Link&gt;` — _components/link/index.test.tsx_" errors="0" failures="0" skipped="0" timestamp="2021-10-28T04:51:44" time="1.679" tests="5">
+    <testcase classname="&lt;Link&gt; should navigate to about page" name="&lt;Link&gt; should navigate to about page" time="0.064" file="components/link/index.test.tsx">
+    </testcase>
+    <testcase classname="&lt;Link&gt; should add props to the underlying &lt;a&gt; tag" name="&lt;Link&gt; should add props to the underlying &lt;a&gt; tag" time="0.01" file="components/link/index.test.tsx">
+    </testcase>
+    <testcase classname="&lt;NavLink&gt; should navigate to about page" name="&lt;NavLink&gt; should navigate to about page" time="0.023" file="components/link/index.test.tsx">
+    </testcase>
+    <testcase classname="&lt;NavLink&gt; should toggle aria-current attribute when active/inactive" name="&lt;NavLink&gt; should toggle aria-current attribute when active/inactive" time="0.026" file="components/link/index.test.tsx">
+    </testcase>
+    <testcase classname="&lt;NavLink&gt; should add props to the underlying &lt;a&gt; tag" name="&lt;NavLink&gt; should add props to the underlying &lt;a&gt; tag" time="0.004" file="components/link/index.test.tsx">
     </testcase>
   </testsuite>
 </testsuites>
