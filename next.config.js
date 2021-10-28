@@ -10,7 +10,7 @@ module.exports = {
     concurrentFeatures: true,
   },
   eslint: {
-    // Turns off ESLint during builds becaues we do it in an
+    // Turns off ESLint during builds because we do it in an
     // earlier CI step
     ignoreDuringBuilds: true,
   },
