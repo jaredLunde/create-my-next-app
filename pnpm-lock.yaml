@@ -3,16 +3,17 @@ lockfileVersion: 5.3
 specifiers:
   '@commitlint/cli': ^13.2.1
   '@commitlint/config-conventional': ^13.2.0
-  '@dash-ui/compound': ^0.1.4
+  '@dash-ui/compound': ^1.0.0-alpha.1
   '@dash-ui/jest': ^2.1.2
-  '@dash-ui/layout': 0.1.2
-  '@dash-ui/mq': ^0.4.1
-  '@dash-ui/react': ^0.9.1
+  '@dash-ui/layout': ^1.0.0-alpha.3
+  '@dash-ui/mq': alpha
+  '@dash-ui/react': ^1.0.0-alpha.2
   '@dash-ui/reset': ^0.3.1
-  '@dash-ui/responsive': ^0.2.3
-  '@dash-ui/styles': ^0.8.9
-  '@dash-ui/transition': ^0.4.0
+  '@dash-ui/responsive': alpha
+  '@dash-ui/styles': ^1.0.0-alpha.3
+  '@dash-ui/transition': alpha
   '@next/eslint-plugin-next': ^12.0.1
+  '@react-hook/debounce': ^4.0.0
   '@split-tests/jest': ^0.1.0
   '@swc-node/core': ^1.7.0
   '@swc-node/jest': ^1.3.3
@@ -23,6 +24,7 @@ specifiers:
   '@types/jest': ^27.0.2
   '@types/node': 16.11.6
   '@types/react': ^17.0.33
+  '@types/use-subscription': ^1.0.0
   cross-env: ^7.0.3
   cz-conventional-changelog: ^3.3.0
   eslint: ^7.32.0
@@ -31,6 +33,7 @@ specifiers:
   husky: ^7.0.4
   jest: ^27.3.1
   jest-junit: ^13.0.0
+  jotai: ^1.4.2
   lint-staged: ^11.2.6
   next: ^12.0.1
   next-router-mock: ^0.5.3
@@ -38,22 +41,26 @@ specifiers:
   prettier-package-json: ^2.6.0
   react: 18.0.0-alpha-6c3dcc7a4-20211027
   react-dom: 18.0.0-alpha-6c3dcc7a4-20211027
+  ts-toolbelt: ^9.6.0
+  type-fest: ^2.5.2
   typedoc: ^0.22.7
   typescript: ^4.4.4
+  use-subscription: ^1.5.1
 
 dependencies:
   '@commitlint/cli': 13.2.1
   '@commitlint/config-conventional': 13.2.0
-  '@dash-ui/compound': 0.1.4_256a6d0f8238af0075c3153a631e7bb2
+  '@dash-ui/compound': 1.0.0-alpha.1_a147d7953a823772a8e1c5e496a98eee
   '@dash-ui/jest': 2.1.2
-  '@dash-ui/layout': 0.1.2_256a6d0f8238af0075c3153a631e7bb2
-  '@dash-ui/mq': 0.4.1_@dash-ui+styles@0.8.9
-  '@dash-ui/react': 0.9.1_c3a3c27b9880d6b3477ef6be06fc8078
+  '@dash-ui/layout': 1.0.0-alpha.3_a147d7953a823772a8e1c5e496a98eee
+  '@dash-ui/mq': 1.0.0-alpha.3_@dash-ui+styles@1.0.0-alpha.3
+  '@dash-ui/react': 1.0.0-alpha.2_50a1913770bbb6f51ea9faf3f4066a5c
   '@dash-ui/reset': 0.3.1
-  '@dash-ui/responsive': 0.2.3_@dash-ui+styles@0.8.9
-  '@dash-ui/styles': 0.8.9
-  '@dash-ui/transition': 0.4.0_@dash-ui+styles@0.8.9
+  '@dash-ui/responsive': 1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3
+  '@dash-ui/styles': 1.0.0-alpha.3
+  '@dash-ui/transition': 1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3
   '@next/eslint-plugin-next': 12.0.1
+  '@react-hook/debounce': 4.0.0_4d9f272516a15e10c5b99b8b217c4110
   '@split-tests/jest': 0.1.0
   '@swc-node/core': 1.7.0
   '@swc-node/jest': 1.3.3
@@ -64,6 +71,7 @@ dependencies:
   '@types/jest': 27.0.2
   '@types/node': 16.11.6
   '@types/react': 17.0.33
+  '@types/use-subscription': 1.0.0
   cross-env: 7.0.3
   cz-conventional-changelog: 3.3.0
   eslint: 7.32.0
@@ -72,6 +80,7 @@ dependencies:
   husky: 7.0.4
   jest: 27.3.1
   jest-junit: 13.0.0
+  jotai: 1.4.2_4d9f272516a15e10c5b99b8b217c4110
   lint-staged: 11.2.6
   next: 12.0.1_88a5b60e1a88b06c33ce8e16ad1d86eb
   next-router-mock: 0.5.3_4ed68eedf08c0f78a654a3aa7df6beca
@@ -79,8 +88,11 @@ dependencies:
   prettier-package-json: 2.6.0
   react: 18.0.0-alpha-6c3dcc7a4-20211027
   react-dom: 18.0.0-alpha-6c3dcc7a4-20211027_4d9f272516a15e10c5b99b8b217c4110
+  ts-toolbelt: 9.6.0
+  type-fest: 2.5.2
   typedoc: 0.22.7_typescript@4.4.4
   typescript: 4.4.4
+  use-subscription: 1.5.1_4d9f272516a15e10c5b99b8b217c4110
 
 packages:
 
@@ -617,14 +629,14 @@ packages:
       chalk: 4.1.2
     dev: false
 
-  /@dash-ui/compound/0.1.4_256a6d0f8238af0075c3153a631e7bb2:
-    resolution: {integrity: sha512-eYZEmapdx1jw/LoPjDptL2Jq9EbcRiizy33iXe/zBn+SmF372ivnp1idcnlmaoCuiRcL2F0zhlMC/mQ0/F4tEw==}
+  /@dash-ui/compound/1.0.0-alpha.1_a147d7953a823772a8e1c5e496a98eee:
+    resolution: {integrity: sha512-jJwv1f62BpI8kcn3umbc5Q3Va2JTckcg6jWayOmAyXfQ05eOukv9X+nRedsSx/HNuE6mYfqKmjR+Js6kG5WeGw==}
     peerDependencies:
-      '@dash-ui/responsive': '>=0.2.3'
-      '@dash-ui/styles': '>=0.8.6'
+      '@dash-ui/responsive': '>=1.0.0-alpha.1'
+      '@dash-ui/styles': '>=1.0.0-alpha.1'
     dependencies:
-      '@dash-ui/responsive': 0.2.3_@dash-ui+styles@0.8.9
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/responsive': 1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3
+      '@dash-ui/styles': 1.0.0-alpha.3
     dev: false
 
   /@dash-ui/jest/2.1.2:
@@ -634,33 +646,33 @@ packages:
       css: 2.2.4
     dev: false
 
-  /@dash-ui/layout/0.1.2_256a6d0f8238af0075c3153a631e7bb2:
-    resolution: {integrity: sha512-qlztb79DcGprHXh9UhfNWh8RIeMcJ7jQcmLe+CzNc+YlASebvBx3ZCSJbo9k+KxArBkzES0p8DYS5wmEykRpMA==}
+  /@dash-ui/layout/1.0.0-alpha.3_a147d7953a823772a8e1c5e496a98eee:
+    resolution: {integrity: sha512-/ZvukYp3PpmXw7UeaC6m1fAiUCDXOe1VaBE1pmEXDJ0IKooMB1OYaBQxdQqh4t0fHDzqvi0/8GgE9uWfqjiVnw==}
     peerDependencies:
       '@dash-ui/responsive': '>=0.2.3'
       '@dash-ui/styles': '>=0.8.6'
     dependencies:
-      '@dash-ui/compound': 0.1.4_256a6d0f8238af0075c3153a631e7bb2
-      '@dash-ui/responsive': 0.2.3_@dash-ui+styles@0.8.9
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/compound': 1.0.0-alpha.1_a147d7953a823772a8e1c5e496a98eee
+      '@dash-ui/responsive': 1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3
+      '@dash-ui/styles': 1.0.0-alpha.3
     dev: false
 
-  /@dash-ui/mq/0.4.1_@dash-ui+styles@0.8.9:
-    resolution: {integrity: sha512-sJSt44idlIJltdSuBSTcTpdIihUXYIUK5LG1SdNc79A9cvjAJK7vOSpHZaoSuufbaniGCrFniut8jX2QnOHV6Q==}
+  /@dash-ui/mq/1.0.0-alpha.3_@dash-ui+styles@1.0.0-alpha.3:
+    resolution: {integrity: sha512-47UQ+eCUDvqGgV8kv8w6WhLkKRrtm8/apElmuESO1A/dWLn2HUNsOkKnm4Gjl0IbN3K3JJGlOUU16gtzFd8CzA==}
     peerDependencies:
-      '@dash-ui/styles': '>=0.8.0'
+      '@dash-ui/styles': '>=1.0.0-alpha.1'
     dependencies:
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/styles': 1.0.0-alpha.3
     dev: false
 
-  /@dash-ui/react/0.9.1_c3a3c27b9880d6b3477ef6be06fc8078:
-    resolution: {integrity: sha512-cd9+wPE6JlXqENWV7bjXqZa+IOXG2hJTMn65njBMfNlbJRIp/VivnujHtDziJ6hQpMly8pdPrdtc93Tz8QOdaQ==}
+  /@dash-ui/react/1.0.0-alpha.2_50a1913770bbb6f51ea9faf3f4066a5c:
+    resolution: {integrity: sha512-/2KZD1QMkcvOql2l854VVPCgKzGeCGFInmzoPslObvNXG3ZMtkBVFUbmDs6RIEVI+TfyekAfKRHcE0GuSrRq+w==}
     peerDependencies:
-      '@dash-ui/styles': '>=0.6.1'
+      '@dash-ui/styles': '>=1.0.0-alpha.1'
       react: '>=16.8'
       react-dom: '>=16.8'
     dependencies:
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/styles': 1.0.0-alpha.3
       '@react-hook/passive-layout-effect': 1.2.1_4d9f272516a15e10c5b99b8b217c4110
       react: 18.0.0-alpha-6c3dcc7a4-20211027
       react-dom: 18.0.0-alpha-6c3dcc7a4-20211027_4d9f272516a15e10c5b99b8b217c4110
@@ -670,17 +682,17 @@ packages:
     resolution: {integrity: sha512-k8wd5FX3yxn+ZtPfdkuWjt6UxqdXld6zsF7jQxdyF6F3anBI16tsjo8Sa/ttb+GCTBCbbCQ6h2G4qAu9GWTpFg==}
     dev: false
 
-  /@dash-ui/responsive/0.2.3_@dash-ui+styles@0.8.9:
-    resolution: {integrity: sha512-YPRjgmkZAB4bp3GO2HHIayDjr5JrRMc8oXDoudX+rDbWmOjiJ+4m09o+A7N+a6oSKo6sCQN4CaroqrVViNM3CQ==}
+  /@dash-ui/responsive/1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3:
+    resolution: {integrity: sha512-5zTzxsaLzuR/0FFRlQimjWwXkvBQ/QoYEE+vc73htbVAocQJyqeadTsuepa5E07n/ihBFsbe9xklIDWpKBPkcQ==}
     peerDependencies:
-      '@dash-ui/styles': '>=0.8.4'
+      '@dash-ui/styles': '>=1.0.0-alpha.3'
     dependencies:
-      '@dash-ui/mq': 0.4.1_@dash-ui+styles@0.8.9
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/mq': 1.0.0-alpha.3_@dash-ui+styles@1.0.0-alpha.3
+      '@dash-ui/styles': 1.0.0-alpha.3
     dev: false
 
-  /@dash-ui/styles/0.8.9:
-    resolution: {integrity: sha512-hd5p763uzIFCJl0AMcH53QqkViv5Y1cn72FZDPggh0sInoHsG+/la0HhhkqneFiDB0rYUs+OeY8OJgxR1enXYA==}
+  /@dash-ui/styles/1.0.0-alpha.3:
+    resolution: {integrity: sha512-u28q/mjJCPuuLvKFqYd8/4d67BSGFze01OlG+n93TE0ykPJ5ShEsYOr9i6TE5QPxMhp9R9g+wjqDobIZ8t12uQ==}
     dependencies:
       '@dash-ui/stylis': 1.0.5
       '@dash-ui/unitless': 2.0.0
@@ -691,12 +703,12 @@ packages:
     resolution: {integrity: sha512-7G2I1tqfIcBNyegJeORLapdsfAVSQiuoyyp725K+FBSemWNOaVMTrtRE7us1HFbAN+CP1S88vSDcKcKxgNBuxw==}
     dev: false
 
-  /@dash-ui/transition/0.4.0_@dash-ui+styles@0.8.9:
-    resolution: {integrity: sha512-4p6eALkUBqyIasYCoGy15p7F5WMLWUprntg0OPeE7psP5sPIfGzu0dCrYcrHlheuqstcjFmJq4PDxsWPU5Mdag==}
+  /@dash-ui/transition/1.0.0-alpha.1_@dash-ui+styles@1.0.0-alpha.3:
+    resolution: {integrity: sha512-hwYhee6FerJPejCuWmyTyPaK+S3uoJHMhvbZMZ9kjL13/RR4kX6i6+jTUb6D5id91GBFiqFmdemqwl0Q8sc4GA==}
     peerDependencies:
       '@dash-ui/styles': '>=0.8.0'
     dependencies:
-      '@dash-ui/styles': 0.8.9
+      '@dash-ui/styles': 1.0.0-alpha.3
     dev: false
 
   /@dash-ui/unitless/2.0.0:
@@ -1175,6 +1187,23 @@ packages:
       fastq: 1.13.0
     dev: false
 
+  /@react-hook/debounce/4.0.0_4d9f272516a15e10c5b99b8b217c4110:
+    resolution: {integrity: sha512-706Xcg+KKWHk9BuZQUQ0ZQKp9zhv3/MbqFenWVfHcynYpSGRVwQTzJRGvPxvsdtXxJv+HfgKTY/O/hEejakwmA==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@react-hook/latest': 1.0.3_4d9f272516a15e10c5b99b8b217c4110
+      react: 18.0.0-alpha-6c3dcc7a4-20211027
+    dev: false
+
+  /@react-hook/latest/1.0.3_4d9f272516a15e10c5b99b8b217c4110:
+    resolution: {integrity: sha512-dy6duzl+JnAZcDbNTfmaP3xHiKtbXYOaz3G51MGVljh548Y8MWzTr+PHLOfvpypEVW9zwvl+VyKjbWKEVbV1Rg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      react: 18.0.0-alpha-6c3dcc7a4-20211027
+    dev: false
+
   /@react-hook/passive-layout-effect/1.2.1_4d9f272516a15e10c5b99b8b217c4110:
     resolution: {integrity: sha512-IwEphTD75liO8g+6taS+4oqz+nnroocNfWVHWz7j+N+ZO2vYrc6PV1q7GQhuahL0IOR7JccFTsFKQ/mb6iZWAg==}
     peerDependencies:
@@ -1560,6 +1589,10 @@ packages:
     resolution: {integrity: sha512-Gk9vaXfbzc5zCXI9eYE9BI5BNHEp4D3FWjgqBE/ePGYElLAP+KvxBcsdkwfIVvezs605oiyd/VrpiHe3Oeg+Aw==}
     dependencies:
       '@types/jest': 27.0.2
+    dev: false
+
+  /@types/use-subscription/1.0.0:
+    resolution: {integrity: sha512-0WWZ5GUDKMXUY/1zy4Ur5/zsC0s/B+JjXfHdkvx6JgDNZzZV5eW+KKhDqsTGyqX56uh99gwGwbsKbVwkcVIKQA==}
     dev: false
 
   /@types/yargs-parser/20.2.1:
@@ -4848,6 +4881,43 @@ packages:
       - utf-8-validate
     dev: false
 
+  /jotai/1.4.2_4d9f272516a15e10c5b99b8b217c4110:
+    resolution: {integrity: sha512-/NcK8DGvfGcVCqoOvjWIo8/KaUYtadXEl+6uxLiQJUxbyiqCtXkhAdrugk5jmpAFXXD2y6fNDw2Ln7h0EuY+ng==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      '@babel/core': '*'
+      '@babel/template': '*'
+      '@urql/core': '*'
+      immer: '*'
+      optics-ts: '*'
+      react: '>=16.8'
+      react-query: '*'
+      valtio: '*'
+      wonka: '*'
+      xstate: '*'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
+      '@urql/core':
+        optional: true
+      immer:
+        optional: true
+      optics-ts:
+        optional: true
+      react-query:
+        optional: true
+      valtio:
+        optional: true
+      wonka:
+        optional: true
+      xstate:
+        optional: true
+    dependencies:
+      react: 18.0.0-alpha-6c3dcc7a4-20211027
+    dev: false
+
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
     dev: false
@@ -6799,6 +6869,10 @@ packages:
       yn: 3.1.1
     dev: false
 
+  /ts-toolbelt/9.6.0:
+    resolution: {integrity: sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==}
+    dev: false
+
   /tsconfig-paths/3.11.0:
     resolution: {integrity: sha512-7ecdYDnIdmv639mmDwslG6KQg1Z9STTz1j7Gcz0xa+nshh/gKDAHcPxRbWOsA3SPp0tXP2leTcY9Kw+NAkfZzA==}
     dependencies:
@@ -6877,6 +6951,11 @@ packages:
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+    dev: false
+
+  /type-fest/2.5.2:
+    resolution: {integrity: sha512-WMbytmAs5PUTqwGJRE+WoRrD2S0bYFtHX8k4Y/1l18CG5kqA3keJud9pPQ/r30FE9n8XRFCXF9BbccHIZzRYJw==}
+    engines: {node: '>=12.20'}
     dev: false
 
   /typedarray-to-buffer/3.1.5:

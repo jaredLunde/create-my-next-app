@@ -6,6 +6,7 @@ module.exports = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
+    reactRoot: true,
     serverComponents: true,
     concurrentFeatures: true,
   },

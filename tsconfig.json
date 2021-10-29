@@ -16,9 +16,11 @@
     "baseUrl": "./",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/dash.config": ["dash.config.ts"],
       "@/hooks/*": ["hooks/*"],
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"],
+      "@/stores/*": ["stores/*"],
       "@/styles/*": ["styles/*"],
       "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]
