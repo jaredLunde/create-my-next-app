@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom/extend-expect";
-import mockRouter from "next-router-mock/async";
+import mockRouter from "next-router-mock";
 
 // Adds mock for Next.js router before each test
 // @see https://github.com/scottrippey/next-router-mock#sync-vs-async
-jest.mock("next/dist/client/router", () => require("next-router-mock/async"));
-jest.mock("next/router", () => require("next-router-mock/async"));
+jest.mock("next/dist/client/router", () => require("next-router-mock"));
+jest.mock("next/router", () => require("next-router-mock"));
 
 beforeEach(() => {
   // Resets the mock router to index before each test
