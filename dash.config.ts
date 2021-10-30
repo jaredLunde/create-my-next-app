@@ -5,6 +5,7 @@ import type { Responsive } from "@dash-ui/responsive";
 import { createStyles } from "@dash-ui/styles";
 import type { StyleMap, TokensUnion } from "@dash-ui/styles";
 import { persistAtom } from "@/stores/atoms";
+import { em } from "@/utils/unit";
 
 /**
  * Design tokens
@@ -527,24 +528,45 @@ export const styles = createStyles({
  * through the `mq()` helper below.
  */
 export const mediaQueries = {
-  min: "only screen and (min-width: 0)",
-  // 560px
-  100: "only screen and (min-width: 35em)",
-  // 768px
-  200: "only screen and (min-width: 48em)",
-  // 1024px
-  300: "only screen and (min-width: 64em)",
-  // 1280px
-  400: "only screen and (min-width: 80em)",
-  // 1440px
-  500: "only screen and (min-width: 90em)",
-  // 1600px
-  600: "only screen and (min-width: 100em)",
-  // 1920px
-  700: "only screen and (min-width: 120em)",
-  // High DPI devices
+  /**
+   * min-width: 0
+   */
+  min: `only screen and (min-width: 0)`,
+  /**
+   * min-width: 560px
+   */
+  100: `only screen and (min-width: ${em(560)})`,
+  /**
+   * min-width: 768px
+   */
+  200: `only screen and (min-width: ${em(768)})`,
+  /**
+   * min-width: 1024px
+   */
+  300: `only screen and (min-width: ${em(1024)})`,
+  /**
+   * min-width: 1280px
+   */
+  400: `only screen and (min-width: ${em(1280)})`,
+  /**
+   * min-width: 1440px
+   */
+  500: `only screen and (min-width: ${em(1440)})`,
+  /**
+   * min-width: 1600px
+   */
+  600: `only screen and (min-width: ${em(1600)})`,
+  /**
+   * min-width: 1920px
+   */
+  700: `only screen and (min-width: ${em(1920)})`,
+  /**
+   * High DPI devices
+   */
   retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
-  // Hover-enabled devices
+  /**
+   * Hover-enabled devices
+   */
   hover: "(hover: hover)",
 } as const;
 

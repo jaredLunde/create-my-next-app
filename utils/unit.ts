@@ -25,6 +25,6 @@ export function rem(px: number) {
  * @param px - A number in `px` to convert to `em`
  * @param base - The base number that the resulting `em` is calculated relative to
  */
-export function em(px: number, base: number) {
-  return `${round(px / base)}em`;
+export function em(px: number, base = 16) {
+  return `${round(px / base)}em` as const;
 }

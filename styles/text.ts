@@ -1,5 +1,5 @@
 import type { DesignTokens, TokenVariants } from "@/dash.config";
-import { compoundStyles, responsiveStyles, styles } from "@/dash.config";
+import { compoundStyles, mq, responsiveStyles, styles } from "@/dash.config";
 import { persistAtom } from "@/stores/atoms";
 import { reduce } from "@/utils/obj";
 
@@ -9,17 +9,27 @@ export const text = compoundStyles(
      * Select a text variant
      */
     variant: responsiveStyles.variants({
-      heading: (t) => ({
-        fontSize: t.font.size[900],
-        lineHeight: t.font.leading[100],
-        letterSpacing: t.font.tracking[100],
-        fontWeight: 700,
+      heading: mq({
+        default: (t) => ({
+          fontSize: t.font.size[800],
+          lineHeight: t.font.leading[100],
+          letterSpacing: t.font.tracking[100],
+          fontWeight: 700,
+        }),
+        200: (t) => ({
+          fontSize: t.font.size[900],
+        }),
       }),
-      subheading: (t) => ({
-        fontSize: t.font.size[700],
-        lineHeight: t.font.leading[200],
-        letterSpacing: t.font.tracking[-200],
-        fontWeight: 500,
+      subheading: mq({
+        default: (t) => ({
+          fontSize: t.font.size[500],
+          lineHeight: t.font.leading[200],
+          letterSpacing: t.font.tracking[-200],
+          fontWeight: 500,
+        }),
+        200: (t) => ({
+          fontSize: t.font.size[700],
+        }),
       }),
       caption: (t) => ({
         fontSize: t.font.size[100],
