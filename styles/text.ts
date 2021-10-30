@@ -1,6 +1,7 @@
-import type { DashTokens, StyleMap } from "@dash-ui/styles";
+import type { DesignTokens, TokenVariants } from "@/dash.config";
 import { compoundStyles, responsiveStyles, styles } from "@/dash.config";
 import { persistAtom } from "@/stores/atoms";
+import { reduce } from "@/utils/obj";
 
 export const text = compoundStyles(
   {
@@ -9,7 +10,7 @@ export const text = compoundStyles(
      */
     variant: responsiveStyles.variants({
       heading: (t) => ({
-        fontSize: t.font.size.xl,
+        fontSize: t.font.size.xl500,
         lineHeight: t.font.leading.tight,
         letterSpacing: t.font.tracking.normal,
         fontWeight: 700,
@@ -83,12 +84,9 @@ export const text = compoundStyles(
      * design tokens.
      */
     leading: responsiveStyles.variants(
-      (
-        Object.keys(
-          styles.tokens.font.leading
-        ) as (keyof DashTokens["font"]["leading"])[]
-      ).reduce<Partial<StyleMap<keyof DashTokens["font"]["leading"]>>>(
-        (obj, key) => {
+      reduce(
+        styles.tokens.font.leading,
+        (obj: TokenVariants<DesignTokens["font"]["leading"]>, key) => {
           obj[key] = ({ font }) => ({
             lineHeight: font.leading[key],
           });
@@ -103,12 +101,9 @@ export const text = compoundStyles(
      * design tokens.
      */
     tracking: responsiveStyles.variants(
-      (
-        Object.keys(
-          styles.tokens.font.tracking
-        ) as (keyof DashTokens["font"]["tracking"])[]
-      ).reduce<Partial<StyleMap<keyof DashTokens["font"]["tracking"]>>>(
-        (obj, key) => {
+      reduce(
+        styles.tokens.font.tracking,
+        (obj: TokenVariants<DesignTokens["font"]["tracking"]>, key) => {
           obj[key] = ({ font }) => ({
             letterSpacing: font.tracking[key],
           });
@@ -123,27 +118,26 @@ export const text = compoundStyles(
      * design tokens.
      */
     color: responsiveStyles.variants(
-      (
-        Object.keys(styles.tokens.color) as (keyof DashTokens["color"])[]
-      ).reduce<Partial<StyleMap<keyof DashTokens["color"]>>>((obj, key) => {
-        obj[key] = ({ color }) => ({
-          color: color[key],
-        });
+      reduce(
+        styles.tokens.color,
+        (obj: TokenVariants<DesignTokens["color"]>, key) => {
+          obj[key] = ({ color }) => ({
+            color: color[key],
+          });
 
-        return obj;
-      }, {})
+          return obj;
+        },
+        {}
+      )
     ),
     /**
      * Creates `font-family` styles for all of your `font.family`
      * design tokens.
      */
     font: responsiveStyles.variants(
-      (
-        Object.keys(
-          styles.tokens.font.family
-        ) as (keyof DashTokens["font"]["family"])[]
-      ).reduce<Partial<StyleMap<keyof DashTokens["font"]["family"]>>>(
-        (obj, key) => {
+      reduce(
+        styles.tokens.font.family,
+        (obj: TokenVariants<DesignTokens["font"]["family"]>, key) => {
           obj[key] = ({ font }) => ({
             fontFamily: font.family[key],
           });
@@ -158,12 +152,9 @@ export const text = compoundStyles(
      * design tokens.
      */
     size: responsiveStyles.variants(
-      (
-        Object.keys(
-          styles.tokens.font.size
-        ) as (keyof DashTokens["font"]["size"])[]
-      ).reduce<Partial<StyleMap<keyof DashTokens["font"]["size"]>>>(
-        (obj, key) => {
+      reduce(
+        styles.tokens.font.size,
+        (obj: TokenVariants<DesignTokens["font"]["size"]>, key) => {
           obj[key] = ({ font }) => ({
             fontSize: font.size[key],
           });

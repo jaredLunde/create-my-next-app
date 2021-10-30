@@ -3,39 +3,13 @@ import dashMq from "@dash-ui/mq";
 import responsive from "@dash-ui/responsive";
 import type { Responsive } from "@dash-ui/responsive";
 import { createStyles } from "@dash-ui/styles";
+import type { StyleMap, TokensUnion } from "@dash-ui/styles";
 import { persistAtom } from "@/stores/atoms";
 
 /**
- * These are the media queries you're using throughout your app.
- * These media queries will be available in media query props and
- * through the `mq()` helper below.
+ * Design tokens
+ * Mostly courtesy of: https://tailwindcss.com
  */
-export const mediaQueries = {
-  min: "only screen and (min-width: 0)",
-  // 560px
-  sm: "only screen and (min-width: 35em)",
-  // 768px
-  md: "only screen and (min-width: 48em)",
-  // 1024px
-  lg: "only screen and (min-width: 64em)",
-  // 1280px
-  xl: "only screen and (min-width: 80em)",
-  // High DPI devices
-  retina: [
-    `(-webkit-min-device-pixel-ratio: 2)`,
-    `(min-resolution: 192dpi)`,
-  ].join(", "),
-  // Hover-enabled devices
-  hover: "(hover: hover)",
-
-  vMin: "only screen and (min-height: 0)",
-  vSm: "only screen and (min-height: 36em)",
-  vMd: "only screen and (min-height: 45em)",
-};
-
-//
-// Design tokens
-// Mostly courtesy of: https://tailwindcss.com
 const colorSystem = {
   current: "currentColor",
 
@@ -283,9 +257,7 @@ const colorSystem = {
   blueGray700: "#334155",
   blueGray800: "#1e293b",
   blueGray900: "#0f172a",
-};
-
-export const BASE_REM = 16;
+} as const;
 
 const tokens = {
   vh: "100vh",
@@ -298,13 +270,7 @@ const tokens = {
         `BlinkMacSystemFont`,
         `Segoe UI`,
         `Roboto`,
-        `Helvetica Neue`,
-        `Noto Sans`,
         `sans-serif`,
-        `Apple Color Emoji`,
-        `Segoe UI Emoji`,
-        `Segoe UI Symbol`,
-        `Noto Color Emoji`,
       ]
         .map((s) => `"${s}"`)
         .join(","),
@@ -329,11 +295,11 @@ const tokens = {
       md: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
-      "2xl": "1.5rem",
-      "3xl": "1.875rem",
-      "4xl": "2.25rem",
-      "5xl": "3rem",
-      "6xl": "4rem",
+      xl100: "1.5rem",
+      xl200: "1.875rem",
+      xl300: "2.25rem",
+      xl400: "3rem",
+      xl500: "4rem",
     },
 
     leading: {
@@ -343,14 +309,14 @@ const tokens = {
       normal: "1.5",
       relaxed: "1.625",
       loose: "2",
-      "3": "0.75em",
-      "4": "1em",
-      "5": "1.25em",
-      "6": "1.5em",
-      "7": "1.75em",
-      "8": "2em",
-      "9": "2.25em",
-      "10": "2.5em",
+      em100: "0.75em",
+      em200: "1em",
+      em300: "1.25em",
+      em400: "1.5em",
+      em500: "1.75em",
+      em600: "2em",
+      em700: "2.25em",
+      em800: "2.5em",
     },
 
     tracking: {
@@ -370,83 +336,121 @@ const tokens = {
     md: "0.25rem",
     lg: "0.375rem",
     xl: "0.5rem",
-    "2xl": "1rem",
+    xl100: "1rem",
     max: "625rem",
   } as const,
 
   pad: {
     none: "0",
-    "2xs": "0.125rem",
+
+    xs200: "0.0625rem",
+    xs100: "0.125rem",
     xs: "0.25rem",
     sm: "0.5rem",
     md: "1rem",
     lg: "2rem",
     xl: "4rem",
-    "2xl": "8rem",
-    "3xl": "16rem",
+    xl100: "8rem",
+    xl200: "16rem",
+
+    emXs200: "0.125em",
+    emXs100: "0.25em",
+    emXs: "0.5em",
+    emSm: "0.75em",
+    emMd: "1em",
+    emLg: "1.25em",
+    emXl: "2em",
+    emXl100: "3.25em",
+    emXl200: "5.25em",
   } as const,
 
   gap: {
     none: "0",
     auto: "auto",
 
-    "-2xs": "-0.0625rem",
-    "-xs": "-0.125rem",
-    "-sm": "-0.25rem",
-    "-md": "-0.5rem",
-    "-lg": "-1rem",
-    "-xl": "-2rem",
-    "-2xl": "-4rem",
-    "-3xl": "-8rem",
-    "-4xl": "-16rem",
+    "-xs200": "-0.0625rem",
+    "-xs100": "-0.125rem",
+    "-xs": "-0.25rem",
+    "-sm": "-0.5rem",
+    "-md": "-1rem",
+    "-lg": "-2rem",
+    "-xl": "-4rem",
+    "-xl100": "-8rem",
+    "-xl200": "-16rem",
 
-    "2xs": "0.0625rem",
-    xs: "0.125rem",
-    sm: "0.25rem",
-    md: "0.5rem",
-    lg: "1rem",
-    xl: "2rem",
-    "2xl": "4rem",
-    "3xl": "8rem",
-    "4xl": "16rem",
+    xs200: "0.0625rem",
+    xs100: "0.125rem",
+    xs: "0.25rem",
+    sm: "0.5rem",
+    md: "1rem",
+    lg: "2rem",
+    xl: "4rem",
+    xl100: "8rem",
+    xl200: "16rem",
+
+    "-emXs200": "-0.125em",
+    "-emXs100": "-0.25em",
+    "-emXs": "-0.5em",
+    "-emSm": "-0.75em",
+    "-emMd": "-1em",
+    "-emLg": "-1.25em",
+    "-emXl": "-2em",
+    "-emXl100": "-3.25em",
+    "-emXl200": "-5.25em",
+
+    emXs200: "0.125em",
+    emXs100: "0.25em",
+    emXs: "0.5em",
+    emSm: "0.75em",
+    emMd: "1em",
+    emLg: "1.25em",
+    emXl: "2em",
+    emXl100: "3.25em",
+    emXl200: "5.25em",
   } as const,
 
   transition: {
     duration: {
-      faster: "75ms",
-      fast: "150ms",
-      normal: "300ms",
-      slow: "500ms",
-      slower: "1000ms",
+      faster: "120ms",
+      fast: "240ms",
+      normal: "320ms",
+      slow: "480ms",
+      slower: "640ms",
     },
     timing: {
-      linear: "linear",
-      in: "cubic-bezier(0.4, 0, 1, 1)",
-      out: "cubic-bezier(0, 0, 0.2, 1)",
-      inOut: "cubic-bezier(0.4, 0, 0.2, 1)",
-      bounce: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+      primary: "cubic-bezier(0.4, 0, 0.2, 1)",
+      accelerated: "cubic-bezier(0.4, 0, 1, 1)",
+      decelerated: "cubic-bezier(0, 0, 0.2, 1)",
+      elastic: "cubic-bezier(0.8, -0.5, 0.2, 1.4)",
+      bounce: "cubic-bezier(0.8, 0.5, 0.2, 1.4)",
     },
   } as const,
 
   zIndex: {
     min: 0,
-    lower: 1,
-    low: 10,
-    medium: 100,
-    high: 1000,
-    higher: 10000,
+    100: 1,
+    200: 10,
+    300: 100,
+    400: 1000,
+    500: 10000,
+    600: 100000,
+    700: 1000000,
+    800: 10000000,
     max: 2147483647,
   } as const,
 
   borderWidth: {
     none: 0,
     // Hairline borders
-    hairline:
+    50:
       (typeof window === "undefined"
         ? 1
         : "devicePixelRatio" in window && devicePixelRatio >= 2
         ? 0.5
         : 1) + "px",
+    100: 1,
+    200: 2,
+    300: 4,
   } as const,
 
   color: colorSystem,
@@ -458,12 +462,12 @@ export const themes = {
       none: "none",
       primary:
         "0 0 12px -3px rgba(0, 0, 0, 0.2), 0 0 6px -2px rgba(0, 0, 0, 0.2)",
-      xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
-      sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-      md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      100: "0 0 0 1px rgba(0, 0, 0, 0.05)",
+      200: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      300: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
       lg: "0 0 15px -3px rgba(0, 0, 0, 0.2), 0 0 6px -2px rgba(0, 0, 0, 0.2)",
       xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      xl100: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
       inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
       outline: "0 0 3px 3px rgba(66, 153, 225, 0.5)",
     },
@@ -476,6 +480,7 @@ export const themes = {
       text400: colorSystem.blueGray400,
     },
   },
+
   dark: {
     shadow: {
       none: "none",
@@ -486,7 +491,7 @@ export const themes = {
       md: "0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06)",
       lg: "0 0 15px -3px rgba(255, 255, 255, 0.2), 0 0 6px -2px rgba(255, 255, 255, 0.2)",
       xl: "0 20px 25px -5px rgba(255, 255, 255, 0.1), 0 10px 10px -5px rgba(255, 255, 255, 0.04)",
-      "2xl": "0 25px 50px -12px rgba(255, 255, 255, 0.25)",
+      xl100: "0 25px 50px -12px rgba(255, 255, 255, 0.25)",
       inner: "inset 0 2px 4px 0 rgba(255, 255, 255, 0.06)",
       outline: "0 0 3px 3px rgba(66, 153, 225, 0.5)",
     },
@@ -499,11 +504,13 @@ export const themes = {
       text400: colorSystem.blueGray500,
     },
   },
-};
+} as const;
 
 /**
  * A `styles` instance that is configured to use your design tokens
  * and themes.
+ *
+ * @see https://github.com/dash-ui/styles
  */
 export const styles = createStyles({
   tokens,
@@ -512,37 +519,70 @@ export const styles = createStyles({
 });
 
 /**
+ * These are the media queries you're using throughout your app.
+ * These media queries will be available in media query props and
+ * through the `mq()` helper below.
+ */
+export const mediaQueries = {
+  min: "only screen and (min-width: 0)",
+  // 560px
+  sm: "only screen and (min-width: 35em)",
+  // 768px
+  md: "only screen and (min-width: 48em)",
+  // 1024px
+  lg: "only screen and (min-width: 64em)",
+  // 1280px
+  xl: "only screen and (min-width: 80em)",
+  // 1440px
+  xl100: "only screen and (min-width: 90em)",
+  // 1920px
+  xl200: "only screen and (min-width: 120em)",
+  // High DPI devices
+  retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
+  // Hover-enabled devices
+  hover: "(hover: hover)",
+} as const;
+
+/**
  * A helper for adding media queries to Dash `styles.variants`, `styles.one`,
  * `styles.cls`, etc. without having to type `@media blah blah` every
  * time.
  *
- * See: https://github.com/dash-ui/mq
+ * @see https://github.com/dash-ui/mq
  */
 export const mq = dashMq(styles, mediaQueries);
 
 /**
  * A function for adding responsive props/styles to components
+ *
+ * @see https://github.com/dash-ui/responsive
  */
 export const responsiveStyles = responsive(styles, mediaQueries);
-export type ResponsiveProp<Variant> =
-  | Variant
-  | Responsive<Variant, AppMediaQueries>;
 
 /**
  * A function for creating compound/multi-variant styles
+ *
+ * @see https://github.com/dash-ui/compound
  */
 export const compoundStyles = compound(styles);
 
 /**
  * An localsStorage atom that stores the name of the current theme
+ *
+ * @see https://github.com/pmndrs/jotai
  */
-export const themeAtom = persistAtom<keyof AppThemes>("theme", "light");
+export const themeAtom = persistAtom<keyof Themes>("theme", "light");
 
-type AppTokens = typeof tokens;
-type AppThemes = typeof themes;
-type AppMediaQueries = typeof mediaQueries;
-
-declare module "@dash-ui/styles" {
-  export interface DashTokens extends AppTokens {}
-  export interface DashThemes extends AppThemes {}
-}
+type Tokens = typeof tokens;
+type Themes = typeof themes;
+export type DesignTokens = TokensUnion<Tokens, Themes>;
+export type ThemeNames = keyof Themes;
+export type MediaQueries = typeof mediaQueries;
+export type ResponsiveProp<Variant> =
+  | Variant
+  | Responsive<Variant, MediaQueries>;
+export type TokenVariants<T extends Record<string, unknown>> = StyleMap<
+  Extract<keyof T, string>,
+  Tokens,
+  Themes
+>;

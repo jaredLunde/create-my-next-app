@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { column } from "@/styles/layout";
+import { text } from "@/styles/text";
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +12,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Welcome to Next.js</h1>
+      <div className={column({ gap: "sm" })}>
+        <h1 className={text({ variant: "heading" })}>Next generation</h1>
+        <h2 className={text({ variant: "subheading" })}>Welcome to Next.js</h2>
+        <h2 className={text({ variant: "action" })}>Do it</h2>
+        <h2 className={text({ variant: "caption" })}>
+          Can you believe this guy?
+        </h2>
+      </div>
     </main>
   );
 };
