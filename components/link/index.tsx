@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import * as React from "react";
 
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  function Link(
+  (
     {
       as,
       href,
@@ -17,7 +17,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       ...props
     },
     ref
-  ) {
+  ) => {
     return (
       <NextLink
         as={as}
@@ -37,7 +37,7 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
 );
 
 export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
-  function NavLink(
+  (
     {
       as,
       href,
@@ -50,7 +50,7 @@ export const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
       ...props
     },
     ref
-  ) {
+  ) => {
     const navLink = useNavLink({ as, href });
 
     return (

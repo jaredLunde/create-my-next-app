@@ -14,10 +14,10 @@ export function persistAtom<Value>(
   const persistentAtom = atom<Value>(lsValue ? lsValue.value : initialValue);
 
   return atom<Value, Value>(
-    function (get) {
+    (get) => {
       return get(persistentAtom);
     },
-    function (get, set, value) {
+    (get, set, value) => {
       const storedState: PersistAtomStorageValue<Value> = { version, value };
       storage?.setItem(key, JSON.stringify(storedState));
       set(persistentAtom, value);

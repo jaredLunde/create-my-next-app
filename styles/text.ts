@@ -178,6 +178,8 @@ export const text = compoundStyles(
   { atomic: true }
 );
 
+text({ weight: 500 });
+
 export const fontScale = {
   xs: "75%",
   sm: "87%",

@@ -12,20 +12,19 @@ import { text } from "@/styles/text";
  * properties set on it. If using the `color` prop, your `fill` and
  * `strokeColor` props must be set to `"currentColor"`.
  */
-export const Icon = React.forwardRef<HTMLSpanElement, IconProps>(function Icon(
-  { src, color, size = "1em", className, ...props },
-  ref
-) {
-  return (
-    <span
-      ref={ref}
-      className={clsx(className, icon({ color, size, src }))}
-      role={props.hasOwnProperty("role") ? props.role : "img"}
-      aria-hidden={!props["aria-label"]}
-      {...props}
-    />
-  );
-});
+export const Icon = React.forwardRef<HTMLSpanElement, IconProps>(
+  ({ src, color, size = "1em", className, ...props }, ref) => {
+    return (
+      <span
+        ref={ref}
+        className={clsx(className, icon({ color, size, src }))}
+        role={props.hasOwnProperty("role") ? props.role : "img"}
+        aria-hidden={!props["aria-label"]}
+        {...props}
+      />
+    );
+  }
+);
 
 export interface IconProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, "color"> {
