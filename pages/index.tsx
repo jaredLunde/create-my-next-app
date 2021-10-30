@@ -3,7 +3,7 @@ import Head from "next/head";
 import { column } from "@/styles/layout";
 import { text } from "@/styles/text";
 
-const Home: NextPage = () => {
+const Home: NextPage = function () {
   return (
     <main>
       <Head>
@@ -12,7 +12,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={column({ gap: "sm" })}>
+      <div className={column({ gap: 500, pad: 800 })}>
         <h1 className={text({ variant: "heading" })}>Next generation</h1>
         <h2 className={text({ variant: "subheading" })}>Welcome to Next.js</h2>
         <h2 className={text({ variant: "action" })}>Do it</h2>

@@ -43,7 +43,7 @@ export function GlobalStyles() {
       ".loud": {
         transitionProperty: "opacity,visibility",
         transitionDuration: t.transition.duration.slower,
-        transitionTimingFunction: t.transition.timing.inOut,
+        transitionTimingFunction: t.transition.timing.primary,
       },
       ".writing-mode-enabled .loud": {
         opacity: "0!important",
@@ -61,7 +61,7 @@ export function GlobalStyles() {
     mq({
       default: (t) => ({
         body: {
-          fontSize: t.font.size.sm,
+          fontSize: t.font.size[200],
           fontFamily: t.font.family.sans,
           color: t.color.text,
           textRendering: "optimizeSpeed",
