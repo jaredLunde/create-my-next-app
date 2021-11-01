@@ -16,7 +16,7 @@ export const text = compoundStyles(
           letterSpacing: t.font.tracking[100],
           fontWeight: 700,
         }),
-        200: (t) => ({
+        sm: (t) => ({
           fontSize: t.font.size[900],
         }),
       }),
@@ -27,7 +27,7 @@ export const text = compoundStyles(
           letterSpacing: t.font.tracking[-200],
           fontWeight: 500,
         }),
-        200: (t) => ({
+        sm: (t) => ({
           fontSize: t.font.size[700],
         }),
       }),
@@ -177,8 +177,6 @@ export const text = compoundStyles(
   },
   { atomic: true }
 );
-
-text({ weight: 500 });
 
 export const fontScale = {
   xs: "75%",

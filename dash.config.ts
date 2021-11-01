@@ -480,7 +480,7 @@ export const themes = {
 
       text: colorSystem.blueGray900,
       text500: colorSystem.blueGray600,
-      text400: colorSystem.blueGray400,
+      text400: colorSystem.blueGray500,
     },
   },
 
@@ -503,7 +503,7 @@ export const themes = {
     color: {
       bodyBg: colorSystem.black,
 
-      text: colorSystem.blueGray300,
+      text: colorSystem.blueGray50,
       text500: colorSystem.blueGray400,
       text400: colorSystem.blueGray500,
     },
@@ -535,31 +535,23 @@ export const mediaQueries = {
   /**
    * min-width: 560px
    */
-  100: `only screen and (min-width: ${em(560)})`,
+  xs: `only screen and (min-width: ${em(560)})`,
   /**
    * min-width: 768px
    */
-  200: `only screen and (min-width: ${em(768)})`,
+  sm: `only screen and (min-width: ${em(768)})`,
   /**
    * min-width: 1024px
    */
-  300: `only screen and (min-width: ${em(1024)})`,
+  md: `only screen and (min-width: ${em(1024)})`,
   /**
    * min-width: 1280px
    */
-  400: `only screen and (min-width: ${em(1280)})`,
+  lg: `only screen and (min-width: ${em(1280)})`,
   /**
    * min-width: 1440px
    */
-  500: `only screen and (min-width: ${em(1440)})`,
-  /**
-   * min-width: 1600px
-   */
-  600: `only screen and (min-width: ${em(1600)})`,
-  /**
-   * min-width: 1920px
-   */
-  700: `only screen and (min-width: ${em(1920)})`,
+  xl: `only screen and (min-width: ${em(1440)})`,
   /**
    * High DPI devices
    */
