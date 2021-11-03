@@ -23,6 +23,8 @@ beforeEach(() => {
 afterEach(() => {
   // Clears all mocks after each test
   jest.clearAllMocks();
+  // Clears local storage after each test
+  localStorage.clear();
 });
 
 beforeAll(() => {
